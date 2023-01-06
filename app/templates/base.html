@@ -1,0 +1,40 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Blue Property Advisor {% endblock %}
+
+{% block head %}
+{{super()}}
+
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{url_for('main.index')}}">Blue Property</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="{{url_for('main.index')}}">Home</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+
+
